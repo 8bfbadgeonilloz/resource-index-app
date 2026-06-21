@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常中的世界杯 · 查询与延伸</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f5f3ef;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.7;
+      color: #2c2b28;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #1a1c1d 0%, #101112 100%);
+      color: #eae7e0;
+      padding: 2.8rem 1.5rem 2.2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 350;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #b8b3aa;
+      max-width: 580px;
+      margin: 0 auto;
+      border-top: 1px solid #3a3c3e;
+      padding-top: 1.1rem;
+      font-weight: 300;
+    }
+
+    /* 正文区 */
+    .content {
+      max-width: 820px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.8rem 3.5rem;
+      flex: 1;
+    }
+
+    /* 文章标题 */
+    .post-title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1c1b19;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+    .post-meta {
+      color: #7b7872;
+      font-size: 0.9rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #ddd9d0;
+      padding-bottom: 1.2rem;
+    }
+    .post-meta span {
+      background: #eceae5;
+      padding: 0.15rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* 导语 / 段落 */
+    .lead {
+      font-size: 1.1rem;
+      background: #f0ede7;
+      padding: 1.2rem 1.5rem;
+      border-left: 4px solid #b6a48c;
+      margin-bottom: 1.8rem;
+      border-radius: 0 6px 6px 0;
+      color: #2b2823;
+    }
+    p {
+      margin-bottom: 1.6rem;
+      text-align: justify;
+      word-break: break-word;
+    }
+
+    /* 引用提示块 */
+    .callout {
+      background: #ece8df;
+      border-radius: 10px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-left: 3px solid #c0392b;
+      font-size: 0.97rem;
+      color: #2e2a24;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .callout strong {
+      color: #a13528;
+    }
+
+    /* 特点卡片（轻量） */
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .mini-grid .item {
+      background: #f0ede7;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #e2ddd3;
+    }
+    .mini-grid .item h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #3d3730;
+    }
+    .mini-grid .item p {
+      font-size: 0.92rem;
+      margin-bottom: 0;
+      color: #56524b;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #faf8f4;
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      margin: 2.2rem 0;
+      border: 1px solid #e3ded5;
+    }
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px dashed #d5cfc3;
+      padding-bottom: 0.6rem;
+    }
+    .faq-mini details:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #2f2b25;
+      padding: 0.2rem 0;
+    }
+    .faq-mini summary::-webkit-details-marker { color: #c0392b; }
+    .faq-mini .answer {
+      padding: 0.6rem 0 0.2rem 0.8rem;
+      color: #4d4840;
+      font-size: 0.94rem;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #c0392b;
+      text-decoration: none;
+      font-weight: 450;
+      transition: border-bottom 0.1s;
+      border-bottom: 1px solid transparent;
+    }
+    a:hover {
+      border-bottom: 1px solid #c0392b;
+      color: #a12e20;
+    }
+
+    /* 访问句 / 脚注 */
+    .visit-line {
+      background: #eceae5;
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.95rem;
+      margin-top: 0.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.9rem; }
+      .content { padding: 1.8rem 1rem; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .post-meta { flex-direction: column; gap: 0.3rem; }
+      .lead { padding: 1rem 1.1rem; }
+      .faq-mini { padding: 1rem; }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7a756c;
+      padding: 1.8rem 1.2rem 2rem;
+      border-top: 1px solid #e0dbd0;
+      background: #f2efe9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>世界杯 · 对照与日常</h1>
+    <div class="sub">把大赛事拆解成随手可查的参照——不只看赛程，更是一场延伸</div>
+  </div>
+
+  <div class="content">
+
+    <h2 class="post-title">当世界杯成为生活里的检索词</h2>
+    <div class="post-meta">
+      <span>📋 阅读切片</span>
+      <span>⚽ 2025 · 日常篇</span>
+    </div>
+
+    <p class="lead">
+      四年一次的盛事，真正进入生活的方式往往不是熬夜看球，而是在某个下午翻出往届数据，或随口聊起某一年的经典阵容。这时候，一个能快速查询、对照、延伸的聚合页面就显得自然。
+    </p>
+
+    <p>
+      你也许有过这样的时刻：朋友突然问起2002年决赛的细节，或者想对比不同届次的冠军之路。与其在零散的网页里来回跳跃，不如把「<a href="https://index-app-worldcup.com">世界杯</a>」当作一个知识坐标——打开后按图索骥，从小组积分到历史射手，从举办国文化到冷门纪录，都在同一逻辑下展开。这种查找更像是在翻阅一本不断更新的参考书，而非沉浸式的直播。
+    </p>
+
+    <p>
+      特别是当你想把世界杯当作一种背景信息来使用时——比如写文章需要核对年份，或者做图表需要引用比分，一个结构清晰的信息页能省下不少精力。日常查询不需要花哨的动效，简洁的索引和规整的对照比什么都重要。
+    </p>
+
+    <div class="callout">
+      <strong>💡 延伸提示</strong> — 许多人对世界杯的记忆是从某一场比赛开始的。试着在搜索时加入“场地”“裁判”或“进球瞬间”等关键词，往往能连出更多有趣的背景。把每次查询当作一次微型探索，你会发现大赛背后有大量被忽略的细节。
+    </div>
+
+    <div class="mini-grid">
+      <div class="item">
+        <h3>📆 历届对比</h3>
+        <p>按年份、东道主、冠军、金靴整理，方便横向浏览。适合做表格或快速参考。</p>
+      </div>
+      <div class="item">
+        <h3>🔍 球队档案</h3>
+        <p>从传统劲旅到黑马，出场次数、历史最佳战绩、经典比赛链接，一页收纳。</p>
+      </div>
+      <div class="item">
+        <h3>🧩 延伸阅读</h3>
+        <p>每届世界杯背后的社会背景、球场故事、文化影响，非球迷也能找到切入点。</p>
+      </div>
+      <div class="item">
+        <h3>📊 数据卡片</h3>
+        <p>胜率、进球分布、观众人数等指标卡片式展示，适合摘引或分享。</p>
+      </div>
+    </div>
+
+    <p>
+      不少朋友把 <a href="https://index-app-worldcup.com">世界杯</a> 页面当作书签栏的常驻项，不是为了每天看，而是需要的时候能精准定位。比如写年终总结要引一句马拉多纳的经典数据，或者给孩子讲解地理时顺手带出承办国信息。这种轻量级的“查询型使用”，反而让页面有了更长的寿命。
+    </p>
+
+    <div class="faq-mini">
+      <details>
+        <summary>🏆 为什么适合日常对照？</summary>
+        <div class="answer">因为信息按届次、队伍、纪录等维度分块，不需要看完一整篇才能找到想用的内容。你可以像查字典一样只取自己需要的那部分。</div>
+      </details>
+      <details>
+        <summary>🧭 延伸阅读一般指什么？</summary>
+        <div class="answer">比如某届世界杯的主题曲、吉祥物、赞助商变化，或者比赛用球的技术演变。这些内容让足球赛事跟流行文化、商业史产生连接。</div>
+      </details>
+      <details>
+        <summary>📁 页面适合保存或打印吗？</summary>
+        <div class="answer">内容以文字和结构化的卡片为主，排版克制，打印或导出为PDF都很清晰。没有大图或复杂交互，适合作为资料存档。</div>
+      </details>
+    </div>
+
+    <p>
+      说到底，一个信息页面最好的状态是：你需要它的时候，它就在那里，不打扰，但可靠。就像桌边常备的一本旧年历，随时翻到某一页，都能找到当时的痕迹。这也是为什么我们会把「<a href="https://index-app-worldcup.com">世界杯</a>」当作一个日常查询的锚点——它不替你做决定，但帮你把事实摆好。
+    </p>
+
+    <div class="visit-line">
+      ⚡ 下次想查点什么，或许可以从这里顺手开始。
+    </div>
+
+  </div>
+
+  <footer>
+    日常查询 · 对照 · 延伸 &nbsp;|&nbsp; 基于公开信息整理
+  </footer>
+
+</body>
+</html>
