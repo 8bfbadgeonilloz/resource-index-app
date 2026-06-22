@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加拿大28 资料索引 · 信息导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f8fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1c2e3f;
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: 0 4px 12px rgba(0, 80, 100, 0.06);
+            margin-bottom: 2.5rem;
+            border: 1px solid #dbeaf0;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            color: #116b7e;
+        }
+        .nav-logo span {
+            background: #0f7b8c;
+            color: white;
+            display: inline-block;
+            padding: 0 10px;
+            border-radius: 24px;
+            margin-left: 6px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #1d4e5c;
+            font-weight: 450;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #1f9eb0;
+            color: #0b5d6b;
+        }
+
+        /* hero 简介区 */
+        .hero {
+            background: linear-gradient(145deg, #e3f2f5, #ccedf2);
+            padding: 2.8rem 2rem;
+            border-radius: 36px;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 20px rgba(35, 110, 120, 0.08);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: #0b4755;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.6rem;
+        }
+        .hero h1 small {
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: #2f798a;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 780px;
+            margin: 0.5rem auto 1.2rem;
+            color: #1c4b58;
+        }
+
+        .hero-link-sentence {
+            background: rgba(255,255,255,0.7);
+            display: inline-block;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .hero-link-sentence a {
+            color: #126c7e;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #82c8d6;
+        }
+        .hero-link-sentence a:hover {
+            background: #1f889c;
+            color: white;
+            border-bottom-color: #1f889c;
+            padding: 0 4px;
+            border-radius: 12px;
+        }
+
+        /* 场景模块 · 网格卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+        .scene-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.4rem 1.6rem;
+            box-shadow: 0 6px 14px rgba(30, 90, 100, 0.05);
+            border: 1px solid #d1e6ec;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+        .scene-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 24px rgba(18, 100, 115, 0.12);
+            border-color: #75bfcf;
+        }
+        .scene-icon {
+            font-size: 1.9rem;
+            background: #d6eff5;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            color: #0f6c7e;
+        }
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #094c5a;
+            margin-bottom: 0.6rem;
+        }
+        .scene-card p {
+            color: #204e5b;
+            font-size: 0.95rem;
+            flex: 1;
+        }
+        .scene-card .tag {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: #daf0f5;
+            color: #0c5c6b;
+            font-size: 0.8rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            align-self: flex-start;
+            letter-spacing: 0.3px;
+            border: 1px solid #add2dc;
+        }
+
+        /* 说明与FAQ摘要 */
+        .info-panel {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 6px 14px rgba(0, 50, 60, 0.03);
+            border: 1px solid #d1e2ea;
+            margin-bottom: 2.2rem;
+        }
+        .info-panel h2 {
+            font-size: 1.5rem;
+            font-weight: 520;
+            color: #094452;
+            border-left: 5px solid #2ba3b9;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .info-panel p {
+            margin-bottom: 0.9rem;
+        }
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 1.4rem;
+        }
+        .faq-mini details {
+            background: #eef7fa;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid #bddbe4;
+            cursor: pointer;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            color: #105765;
+        }
+        .faq-mini details p {
+            margin: 0.7rem 0 0.2rem;
+            font-size: 0.95rem;
+            padding-left: 0.5rem;
+            color: #1d4b58;
+        }
+
+        /* 提示与说明 */
+        .footnote {
+            background: #e0f0f5;
+            border-radius: 40px;
+            padding: 1.4rem 2rem;
+            text-align: center;
+            color: #07404d;
+            border: 1px solid #b4d6e0;
+            margin-top: 2.5rem;
+        }
+        .footnote a {
+            color: #0b6577;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #81bbc9;
+        }
+        .footnote a:hover {
+            background: #20899e;
+            color: white;
+            border-bottom-color: #20899e;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #bedae3;
+            margin: 2rem 0 0.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .scene-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.4rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: stretch;
+                text-align: center;
+                border-radius: 30px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 1.2rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .info-panel {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+        @media (max-width: 420px) {
+            .hero-link-sentence {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 导航栏 -->
+    <nav class="nav-bar">
+        <div class="nav-logo">
+            📋 Index<span>28</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#scene">场景</a></li>
+            <li><a href="#info">索引说明</a></li>
+            <li><a href="#faq">常见问题</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero 介绍区 · 资料整理入口 -->
+    <section class="hero">
+        <h1>加拿大28 · 资料索引 <small>📌 信息导航</small></h1>
+        <p>
+            围绕「加拿大28」这一关键词，我们从信息整理与资料归档的角度出发，梳理了常见使用场景、规则框架与数据参考。本页作为轻量导航站，帮助浏览者快速定位所需内容，而非替代官方说明。
+        </p>
+        <div class="hero-link-sentence">
+            💡 关于规则与历史数据，可参考 <a href="https://on-ca28.com">加拿大28</a> 的归纳页面。
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section id="scene" class="scene-grid">
+        <div class="scene-card">
+            <div class="scene-icon">📊</div>
+            <h3>数据查阅与对照</h3>
+            <p>整理周期开奖号码、分布统计以及常见和值区间。适合需要快速回溯历史记录或进行简单频率分析的浏览者。所有数据均来自公开汇总，便于个人对照。</p>
+            <span class="tag">📁 表格·走势</span>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">🧮</div>
+            <h3>算法与组合逻辑</h3>
+            <p>收集关于号码生成机制、组合概率及和值分布的基础介绍。不涉及预测或保证，只以数学与统计视角展示常见的分类方式和计算示例。</p>
+            <span class="tag">⚙️ 公式·分布</span>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">📚</div>
+            <h3>术语与规则入门</h3>
+            <p>对「加拿大28」中出现的专业表述、玩法结构及名词进行解释。适合刚接触该领域的用户快速建立基本认知，减少信息差。</p>
+            <span class="tag">📖 词典·基础</span>
+        </div>
+    </section>
+
+    <!-- 常见说明 + FAQ摘要 -->
+    <section id="info" class="info-panel">
+        <h2>📌 资料索引说明</h2>
+        <p>
+            本站点定位为信息导航与资料整理页，所有聚合内容均来自可查证的公开信息。我们将「加拿大28」相关的规则说明、数字分布特征以及常见疑问进行了模块化归类。不同卡片对应不同查阅目的，你可以直接根据需求选择板块深入浏览。
+        </p>
+        <p>
+            资料索引力求中立，不包含任何投资建议或收益承诺。如果你需要获取最准确、最实时的内容，建议直接查阅相关官方汇总源。其中，<strong>规则与数据总览</strong>可以参考 <a href="https://on-ca28.com" style="color: #126c7e; font-weight: 500;">加拿大28</a> 的整合介绍。
+        </p>
+
+        <div id="faq" class="faq-mini">
+            <details>
+                <summary>❓ 加拿大28 的号码范围是多少？</summary>
+                <p>通常由0到27共28个和值构成，对应三个独立数字相加的结果。每个数字区间为0-9，因此和值范围为0至27。具体规则以最新说明为准。</p>
+            </details>
+            <details>
+                <summary>❓ 这里的资料多久更新一次？</summary>
+                <p>基础规则与术语说明基本保持稳定；走势与历史数据部分会随公开信息不定期同步。建议同时参考数据源的时间标记。</p>
+            </details>
+            <details>
+                <summary>❓ 是否提供预测或策略建议？</summary>
+                <p>不提供。本索引仅整理已知的统计分布、规则描述和术语解释，不包含任何形式的下注建议或趋势预测。</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 附加说明 + 自然链接 -->
+    <div class="footnote">
+        ⚡ 本页作为资料索引，内容仅供个人学习与信息梳理。若需查看完整规则及最新数据，可前往
+        <a href="https://on-ca28.com">加拿大28</a> 信息页。
+    </div>
+
+    <hr>
+    <p style="text-align: center; font-size: 0.85rem; color: #3d6b77; margin: 1rem 0 1.8rem;">
+        索引方向：轻量导航 · 网格卡片 · 信息整理
+    </p>
+
+</div>
+</body>
+</html>
