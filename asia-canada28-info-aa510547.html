@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · 加拿大28 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1e2b38;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero 横幅 */
+        .hero {
+            background: linear-gradient(135deg, #1a3b47 0%, #2b5f6b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 6px 18px rgba(0,40,50,0.12);
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            opacity: 0.88;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #3cb8a6;
+            color: #0e2b33;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 18px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin: 48px 0 36px;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 22px;
+            box-shadow: 0 4px 14px rgba(30, 55, 70, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e4edf2;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(30, 55, 70, 0.10);
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            color: #1f4b57;
+            margin-bottom: 14px;
+            border-left: 4px solid #3cb8a6;
+            padding-left: 14px;
+        }
+        .card p {
+            color: #2a3f4a;
+            font-size: 0.98rem;
+        }
+        .card .tiny-icon {
+            display: inline-block;
+            background: #d3ece5;
+            color: #1b5b60;
+            font-size: 0.75rem;
+            padding: 3px 12px;
+            border-radius: 40px;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        /* 背景说明段落 */
+        .back-section {
+            background: white;
+            padding: 36px 30px;
+            border-radius: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+            margin: 28px 0;
+            border: 1px solid #dce8ef;
+        }
+        .back-section h2 {
+            font-size: 1.6rem;
+            color: #1f4b57;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .back-section h2:before {
+            content: "▍";
+            color: #3cb8a6;
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .back-section p {
+            margin-bottom: 16px;
+            font-size: 1.02rem;
+        }
+        .back-section .highlight {
+            background: #e3f2ee;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #13545a;
+        }
+
+        /* 三段自然介绍 (杂志风格) */
+        .magazine-intro {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin: 40px 0;
+        }
+        .mag-item {
+            background: white;
+            border-radius: 26px;
+            padding: 28px 26px;
+            border-left: 8px solid #3cb8a6;
+            box-shadow: 0 2px 10px rgba(0, 30, 40, 0.04);
+        }
+        .mag-item h3 {
+            font-size: 1.25rem;
+            color: #19434d;
+            margin-bottom: 12px;
+        }
+        .mag-item p {
+            color: #2a4150;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* FAQ 摘要 (小卡片) */
+        .faq-box {
+            background: #e7f2f0;
+            border-radius: 28px;
+            padding: 32px 28px;
+            margin: 40px 0;
+        }
+        .faq-box h3 {
+            font-size: 1.4rem;
+            color: #1a4d54;
+            margin-bottom: 18px;
+        }
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #c6dbd8;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            color: #0d3942;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .faq-item p {
+            color: #2a4653;
+            font-size: 0.95rem;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            border-top: 1px solid #d0dfe5;
+            padding: 32px 0 28px;
+            margin-top: 18px;
+            text-align: center;
+            color: #3f5c68;
+        }
+        .footer-note .cta-line {
+            background: #d4e9e4;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 60px;
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+        .footer-note a {
+            color: #1a5b68;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed #3cb8a6;
+        }
+        .footer-note a:hover {
+            color: #0d404c;
+            border-bottom: 2px solid #1f7a7a;
+        }
+        .footer-note small {
+            display: block;
+            margin-top: 18px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* 移动端友好 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .back-section {
+                padding: 24px 18px;
+            }
+            .mag-item {
+                padding: 22px 18px;
+            }
+            .card-grid {
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>加拿大28 · 简明指南</h1>
+        <p class="sub">从规则理解到理性参与，一份偏向知识型的杂志专题，为你拆解数字背后的逻辑与场景。</p>
+        <span class="badge">专题 · 基础框架</span>
+    </div>
+
+    <div class="container">
+
+        <!-- 背景说明 -->
+        <div class="back-section">
+            <h2>数字组合与概率观察</h2>
+            <p><span class="highlight">加拿大28</span> 是一种基于数字总和与位置组合的趣味数字游戏。其核心机制并不复杂：从 0 到 27 的 28 个数字中，每一轮生成三个独立数字并求和，最终根据和值大小、奇偶、以及特定区间来判定结果。这种结构使得每一局都拥有独立的概率分布，而 28 个数字的出现并非完全随机——长期统计中，某些区间（如中位区域）的命中频率略高，这也是许多参与者持续观察的原因。</p>
+            <p>作为入门者，不必急于寻找捷径，而是先理解出号的对称性与波动。推荐以单双、大中小作为切入点，建立基础的走势感知。更多关于历史数据和趋势分析的内容，可以在 <a href="https://asia-canada28.com" style="color:#1a5b68; text-decoration:underline; font-weight:500;">加拿大28</a> 的统计页面找到持续更新的图表与说明。</p>
+        </div>
+
+        <!-- 三段自然介绍 (杂志承接) -->
+        <div class="magazine-intro">
+            <div class="mag-item">
+                <h3>第一步：理解号码区间</h3>
+                <p>0–27 共 28 个号码，通常被划分为“小单、小双、大单、大双”四个基础象限。中位数 13–14 附近出现概率最高，极值（0–3 或 24–27）则相对稀少。初学者可以先观察 50 期内的区间分布，培养对数字密度的直觉。</p>
+            </div>
+            <div class="mag-item">
+                <h3>第二步：建立简单的节奏感</h3>
+                <p>不要被短期的连开或遗漏影响判断。每个结果独立，但连续走势能反映当前波动特征。例如连续 6 期开出“大”之后，无需认为“小”必然回归，而是理性参考历史相同情境下的概率偏移。利用简单的遗漏表格，就能提升对冷热数字的识别能力。</p>
+            </div>
+            <div class="mag-item">
+                <h3>第三步：工具与注意点</h3>
+                <p>许多平台提供走势图、遗漏统计和区间命中率。建议优先使用带有数字频率柱状图的辅助页面。同时需留意：任何数字游戏均不能保证收益，观察与策略只是提升对规则的了解。若想深入了解，可访问 <a href="https://asia-canada28.com" style="color:#1a5b68; text-decoration:underline; font-weight:500;">加拿大28</a> 的知识板块，那里有更翔实的数值分析。</p>
+            </div>
+        </div>
+
+        <!-- 网格卡片：特点 + 场景 + 提醒 -->
+        <div class="card-grid">
+            <div class="card">
+                <h3>分布特点</h3>
+                <p>28 个数字并非均匀出现，中心区域（10–18）长期占比约 46%，而两端（0–4、23–27）合计不足 13%。这种偏态正是策略设计的基础。</p>
+                <span class="tiny-icon">对称与偏态</span>
+            </div>
+            <div class="card">
+                <h3>适用场景</h3>
+                <p>适合希望用理性视角观察数字规律的人：短线看单双、长线观区间。无论是闲暇统计还是系统学习，都可以从中得到反馈。</p>
+                <span class="tiny-icon">理性参与</span>
+            </div>
+            <div class="card">
+                <h3>访问提醒</h3>
+                <p>任何数字游戏都带有不确定性，保持适度、避免过度投入。建议每次参与前设定观察期数上限，以轻松心态了解概率本身。</p>
+                <span class="tiny-icon">适度原则</span>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-box">
+            <h3>常见疑问摘要</h3>
+            <div class="faq-item">
+                <strong>加拿大28 的号码是纯随机吗？</strong>
+                <p>从单期看符合随机分布，但长期统计中会呈现稳定的区间概率，这正是分析的价值所在。不存在人为操控的公开平台会定期公示算法说明。</p>
+            </div>
+            <div class="faq-item">
+                <strong>新手如何开始看走势？</strong>
+                <p>建议从“单双”和“大小”两种最简单分类开始，记录 20–30 期，就会自然感受到数字的波动节奏，再逐步深入了解区间与遗漏。</p>
+            </div>
+            <div class="faq-item">
+                <strong>需要专门工具吗？</strong>
+                <p>主流平台都自带走势图表，可直接使用。若想深入研究，可以自行用电子表格记录数据并绘制频率分布，并不需要复杂软件。</p>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <div class="cta-line">
+                📘 想了解更完整的数值框架与历史统计？
+            </div>
+            <p>我们推荐直接浏览 <a href="https://asia-canada28.com">加拿大28</a> 的官方专题页面，那里整合了走势图、区间频率和常见策略说明。所有内容均以数据为基础，不包含诱导性表述，适合作为知识参考。</p>
+            <small>本页为杂志式介绍，内容仅供学习交流。请理性看待数字游戏，享受逻辑分析的乐趣。</small>
+        </div>
+    </div>
+</body>
+</html>
